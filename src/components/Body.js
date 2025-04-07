@@ -16,12 +16,12 @@ const Body = () => {
                 }}>Top Rated Restaurants</button>
             </div>
             <div className="restro-container">
-                {
-                    listOfRestaurants.map((restaurants) => (
-                        <RestaurantCard key={restaurants.info.id} restroData={restaurants} />
-                    ))                    
-                }
-            </div>
+  {
+    listOfRestaurants.map((restaurants) => {
+      return <RestaurantCard key={restaurants.info.id} restroData={restaurants} />;
+    })
+  }
+</div>
         </div>
     );
 }
