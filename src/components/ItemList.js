@@ -1,6 +1,13 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
+  const dispatch = useDispatch();
+
+  const handleClickForItems = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {items.map((item) => (
@@ -18,6 +25,11 @@ const ItemList = ({ items }) => {
                 item.card.info.finalPrice / 100 ||
                 item.card.info.price / 100}
             </p>
+            {item.quantity && (
+              <p className="text-sm text-gray-700 mb-1">
+                Quantity: {item.quantity}
+              </p>
+            )}
             <p className="text-xs text-gray-500">
               {item.card.info.description}
             </p>
@@ -28,7 +40,12 @@ const ItemList = ({ items }) => {
               src={CDN_URL + item.card.info.imageId}
               alt={item.card.info.name}
             />
-            <button className="absolute bottom-[-12px] left-1/2 transform -translate-x-1/2 bg-white text-green-500 font-semibold px-4 py-1 text-sm rounded-md shadow-md hover:bg-green-50 transition">
+            <button
+              className="absolute bottom-[-12px] left-1/2 transform -translate-x-1/2 bg-white text-green-500 font-semibold px-4 py-1 text-sm rounded-md shadow-md hover:bg-green-50 transition cursor-pointer"
+              onClick={() => {
+                handleClickForItems(item);
+              }}
+            >
               Add +
             </button>
           </div>
