@@ -13,6 +13,8 @@ class UserClass extends React.Component {
     };
   }
 
+  static contextType = UserContext;
+
   async componentDidMount() {
     const data = await fetch("https://api.github.com/users/PranavK1997");
     const json = await data.json();
@@ -25,14 +27,14 @@ class UserClass extends React.Component {
 
   render() {
     const { login, type, avatar_url } = this.state.userInfo;
+    const { loggedInUser } = this.context;
 
     return (
       <div className="user-card">
         <img className="git-img" src={avatar_url} />
         <h2>Name: {login}</h2>
-        <h3>
-          <UserContext></UserContext> {type}
-        </h3>
+        <h3>Logged in as: {loggedInUser}</h3>
+        <h4>Type: {type}</h4>
         <h4>Contact: @pranav1997</h4>
       </div>
     );

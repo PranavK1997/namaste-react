@@ -27,7 +27,6 @@ const Body = () => {
         ?.restaurants;
     setListOfRestaurants(restaurants);
     setFilteredRestaurants(restaurants);
-    console.log(listOfRestaurants);
   };
 
   const onlineStatus = useOnlinestatus();
