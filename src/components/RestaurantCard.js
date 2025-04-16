@@ -5,7 +5,7 @@ const RestaurantCard = (props) => {
   const { name, cuisines, avgRating, sla } = restroData?.info;
 
   return (
-    <div className="m-4 p-4 w-[200px] rounded-lg bg-gray-100 hover:bg-gray-200 shadow-sm hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
+    <div data-testid="resCard"className="m-4 p-4 w-[200px] rounded-lg bg-gray-100 hover:bg-gray-200 shadow-sm hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out cursor-pointer">
       <img
         className="rounded-lg w-full h-36 object-cover"
         alt="restaurant"

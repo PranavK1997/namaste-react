@@ -49,6 +49,7 @@ const Body = () => {
         <div className="search flex items-center gap-2 m-2">
           <input
             type="text"
+            data-testid = "searchInput"
             className="border border-black px-2 py-1 rounded"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
